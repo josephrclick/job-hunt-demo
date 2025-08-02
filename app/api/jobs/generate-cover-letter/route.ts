@@ -188,20 +188,68 @@ export async function GET(req: NextRequest) {
       html = html.replaceAll(key, val);
     }
 
-    // ── Return HTML for now (temporary fix) ───────────────────────────
-    // TODO: Implement proper PDF generation with a Vercel-compatible solution
-    
+    // ── Return HTML with client-side PDF generation ──────────────────
     const safeCompany = (job.company || 'Company')
       .replace(/[^\w\s-]/g, '')
       .replace(/\s+/g, ' ')
       .trim();
 
-    const filename = `Cover Letter of Joseph Click - ${safeCompany}.html`;
+    const filename = `Cover Letter of Joseph Click - ${safeCompany}`;
 
-    return new NextResponse(html, {
+    // Add client-side PDF generation script
+    const htmlWithPdfGeneration = html + `
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/3.0.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+window.onload = function() {
+  // Wait for fonts to load
+  document.fonts.ready.then(() => {
+    setTimeout(() => {
+      const { jsPDF } = window.jspdf;
+      
+      html2canvas(document.body, {
+        scale: 2,
+        useCORS: true,
+        allowTaint: true,
+        letterRendering: true,
+        width: 816,  // 8.5 inches at 96 DPI
+        height: 1056 // 11 inches at 96 DPI
+      }).then(canvas => {
+        const imgData = canvas.toDataURL('image/png');
+        const pdf = new jsPDF('p', 'mm', 'a4');
+        
+        const imgWidth = 210; // A4 width in mm
+        const pageHeight = 295; // A4 height in mm
+        const imgHeight = (canvas.height * imgWidth) / canvas.width;
+        let heightLeft = imgHeight;
+        
+        let position = 0;
+        
+        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+        heightLeft -= pageHeight;
+        
+        while (heightLeft >= 0) {
+          position = heightLeft - imgHeight;
+          pdf.addPage();
+          pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+          heightLeft -= pageHeight;
+        }
+        
+        pdf.save('${filename}.pdf');
+        
+        // Close the tab after download
+        setTimeout(() => {
+          window.close();
+        }, 1000);
+      });
+    }, 500);
+  });
+}
+</script>`;
+
+    return new NextResponse(htmlWithPdfGeneration, {
       headers: {
         'Content-Type': 'text/html',
-        'Content-Disposition': `attachment; filename="${filename}"`,
       },
     });
   } catch (error) {
