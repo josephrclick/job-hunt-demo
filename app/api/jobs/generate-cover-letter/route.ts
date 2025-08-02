@@ -204,7 +204,7 @@ export async function GET(req: NextRequest) {
         });
       } else {
         // Production - use @sparticuz/chromium
-        const executablePath = await chromium.executablePath();
+        const executablePath = await chromium.executablePath('/tmp');
 
         browser = await puppeteer.launch({
           args: [
