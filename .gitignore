@@ -87,3 +87,4 @@ vitest.config.ts.timestamp-*
 *~
 .idea/
 *.iml
+.vercel

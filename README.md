@@ -88,37 +88,6 @@ This isn't just another CRUD app with AI tacked on. Key engineering decisions in
 - **kb_embeddings** - Vector store for semantic search
 - **user_profile** - User preferences and career profile
 
-## Quick Start
-
-### Development Setup
-```bash
-# Install dependencies
-npm install
-
-# Start local Supabase
-npm run supabase:start
-
-# Start the application
-npm run dev
-```
-
-### Environment Variables
-```bash
-# Required
-NEXT_PUBLIC_SUPABASE_URL=
-NEXT_PUBLIC_SUPABASE_ANON_KEY=
-SUPABASE_SERVICE_ROLE_KEY=
-OPENAI_API_KEY=
-
-# Job System
-EXTENSION_API_KEY=              # Chrome extension auth
-INTERNAL_API_SECRET=            # Internal API security
-
-# AI Configuration
-CONFIDENCE_THRESHOLD=50         # Minimum confidence for enrichment
-EMBED_MODEL=text-embedding-3-small
-```
-
 ## API Reference
 
 ### Core Endpoints
@@ -126,22 +95,6 @@ EMBED_MODEL=text-embedding-3-small
 - `POST /api/ingest-docs` - Process job-related documents
 - `GET /api/jobs` - Fetch jobs with enrichment data
 - `PATCH /api/jobs` - Update job status
-
-## Development Commands
-
-### Application
-- `npm run dev` - Start development server (port 3002)
-- `npm run build` - Build production application
-- `npm run lint` - Run ESLint
-
-### Supabase
-- `npm run supabase:start` - Start local Supabase services
-- `npm run supabase:reset` - Reset database and apply all migrations
-- `npm run test:local` - Verify local setup
-
-### Production
-- `npx supabase db push` - Apply migrations to remote database
-- `npx supabase gen types typescript --linked > supabase/supabase.generated.ts`
 
 ## Performance & Testing
 
