@@ -216,7 +216,7 @@ export async function GET(req: NextRequest) {
             '--single-process',
           ],
           executablePath,
-          headless: chromium.headless,
+          headless: true,
         });
       }
 
