@@ -223,11 +223,10 @@ export function JobCardV2({
           <Button
             size="sm"
             variant="outline"
-            className="h-7 px-2 text-xs"
-            onClick={(e) => {
-              e.stopPropagation();
-              onGenerateCoverLetter(job);
-            }}
+            disabled={true}
+            className="h-7 px-2 text-xs opacity-50 cursor-not-allowed hover:bg-background"
+            title="Feature available - temporarily disabled in demo environment"
+            onClick={(e) => e.stopPropagation()}
           >
             Cover
           </Button>

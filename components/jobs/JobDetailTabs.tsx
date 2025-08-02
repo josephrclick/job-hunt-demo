@@ -285,17 +285,13 @@ export default function JobDetailTabs({ job, onJobUpdate }: Props) {
               Generate Resume
             </Button>
             <Button 
-              onClick={handleGenerateLetter}
-              disabled={generateLetterLoading}
+              disabled={true}
               variant="outline"
               size="sm"
-              className="w-full"
+              className="w-full opacity-50 cursor-not-allowed hover:bg-background"
+              title="Feature available - temporarily disabled in demo environment"
             >
-              {generateLetterLoading ? (
-                <Loader2 className="h-4 w-4 mr-1 animate-spin" />
-              ) : (
-                <Mail className="h-4 w-4 mr-1" />
-              )}
+              <Mail className="h-4 w-4 mr-1" />
               Generate Letter
             </Button>
             {job.url && (
