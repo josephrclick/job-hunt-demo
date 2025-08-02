@@ -1,6 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server';
-import chromium from '@sparticuz/chromium';
-import puppeteer from 'puppeteer-core';
 import { createServiceRoleClient } from '@/lib/supabase/server';
 
 /* ------------------------------------------------------------------ */
@@ -190,83 +188,22 @@ export async function GET(req: NextRequest) {
       html = html.replaceAll(key, val);
     }
 
-    // ── Headless Chromium → PDF ───────────────────────────────────────
-    let browser;
-    try {
-      // Configure Chromium for Vercel deployment
-      const isDev = process.env.NODE_ENV === 'development';
-      
-      if (isDev) {
-        // Local development - use system Chrome if available
-        browser = await puppeteer.launch({
-          headless: true,
-          args: ['--no-sandbox', '--disable-setuid-sandbox'],
-        });
-      } else {
-        // Production - use @sparticuz/chromium
-        const executablePath = await chromium.executablePath('/tmp');
+    // ── Return HTML for now (temporary fix) ───────────────────────────
+    // TODO: Implement proper PDF generation with a Vercel-compatible solution
+    
+    const safeCompany = (job.company || 'Company')
+      .replace(/[^\w\s-]/g, '')
+      .replace(/\s+/g, ' ')
+      .trim();
 
-        browser = await puppeteer.launch({
-          args: [
-            ...chromium.args,
-            '--no-sandbox',
-            '--disable-setuid-sandbox',
-            '--disable-dev-shm-usage',
-            '--disable-gpu',
-            '--single-process',
-          ],
-          executablePath,
-          headless: true,
-        });
-      }
+    const filename = `Cover Letter of Joseph Click - ${safeCompany}.html`;
 
-      const page = await browser.newPage();
-
-      await page.setContent(html, { waitUntil: 'networkidle0' });
-      
-      // ── Critical: Wait for fonts to load ─────────────────────────────
-      await page.evaluateHandle('document.fonts.ready');
-      await page.waitForFunction(() =>
-        document.fonts.check('20pt Courgette') &&
-        document.fonts.check('bold 20pt Garamond')
-      );
-
-      const pdf = await page.pdf({
-        format: 'Letter',
-        printBackground: true,
-        margin: {
-          top: '0.75in',
-          right: '0.75in',
-          bottom: '0.75in',
-          left: '0.75in',
-        },
-        preferCSSPageSize: true,
-      });
-
-      await browser.close();
-
-      // ── Filename helper ───────────────────────────────────────────────
-      const safeCompany = (job.company || 'Company')
-        .replace(/[^\w\s-]/g, '')
-        .replace(/\s+/g, ' ')
-        .trim();
-
-      const filename = `Cover Letter of Joseph Click - ${safeCompany}.PDF`;
-
-      return new NextResponse(pdf, {
-        headers: {
-          'Content-Type': 'application/pdf',
-          'Content-Disposition': `attachment; filename="${filename}"`,
-        },
-      });
-    } catch (pdfError) {
-      console.error('❌ PDF generation error:', pdfError);
-      throw pdfError;
-    } finally {
-      if (browser) {
-        await browser.close().catch(console.error);
-      }
-    }
+    return new NextResponse(html, {
+      headers: {
+        'Content-Type': 'text/html',
+        'Content-Disposition': `attachment; filename="${filename}"`,
+      },
+    });
   } catch (error) {
     console.error('❌ Cover letter generation error:', error);
     return new NextResponse(
