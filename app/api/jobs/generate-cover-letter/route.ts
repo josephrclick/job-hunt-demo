@@ -193,13 +193,32 @@ export async function GET(req: NextRequest) {
     // ── Headless Chromium → PDF ───────────────────────────────────────
     let browser;
     try {
-      const executablePath = await chromium.executablePath();
+      // Configure Chromium for Vercel deployment
+      const isDev = process.env.NODE_ENV === 'development';
+      
+      if (isDev) {
+        // Local development - use system Chrome if available
+        browser = await puppeteer.launch({
+          headless: true,
+          args: ['--no-sandbox', '--disable-setuid-sandbox'],
+        });
+      } else {
+        // Production - use @sparticuz/chromium
+        const executablePath = await chromium.executablePath();
 
-      browser = await puppeteer.launch({
-        args: chromium.args,
-        executablePath,
-        headless: true,
-      });
+        browser = await puppeteer.launch({
+          args: [
+            ...chromium.args,
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--disable-dev-shm-usage',
+            '--disable-gpu',
+            '--single-process',
+          ],
+          executablePath,
+          headless: chromium.headless,
+        });
+      }
 
       const page = await browser.newPage();
 
