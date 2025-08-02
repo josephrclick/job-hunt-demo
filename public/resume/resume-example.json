@@ -1,0 +1,101 @@
+{
+  "name": "Alex Johnson",
+  "location": "San Francisco, California",
+  "email": "alex.johnson@example.com",
+  "phone": "(555) 123-4567",
+  "linkedin": "https://www.linkedin.com/in/alexjohnson/",
+  "summary": "Senior Software Engineer with 8+ years of experience building scalable web applications and distributed systems. Passionate about creating developer tools, optimizing performance, and mentoring teams. Expertise in full-stack development, cloud architecture, and DevOps practices. Strong track record of leading technical initiatives and delivering high-impact projects.",
+  "skills": [
+    "Software Architecture",
+    "System Design",
+    "Full-Stack Development",
+    "API Design & Development",
+    "Performance Optimization",
+    "Technical Leadership",
+    "TypeScript",
+    "Python",
+    "Go",
+    "React",
+    "Node.js",
+    "PostgreSQL",
+    "MongoDB",
+    "Redis",
+    "Docker",
+    "Kubernetes",
+    "AWS",
+    "GCP",
+    "CI/CD",
+    "Microservices",
+    "GraphQL",
+    "REST APIs",
+    "Event-Driven Architecture",
+    "Test-Driven Development",
+    "Agile Methodologies"
+  ],
+  "experience": [
+    {
+      "title": "Senior Software Engineer",
+      "summary": "Led development of a high-traffic e-commerce platform serving 10M+ users. Architected microservices migration that improved system reliability to 99.99% uptime. Implemented real-time inventory management system processing 100K+ transactions daily. Mentored team of 5 junior developers and established code review practices. Reduced page load times by 60% through performance optimization initiatives."
+    },
+    {
+      "title": "Software Engineer II",
+      "summary": "Built core features for B2B SaaS analytics platform using React and Node.js. Designed and implemented RESTful APIs serving 50+ enterprise clients. Created automated testing framework that increased code coverage from 40% to 85%. Collaborated with product team to deliver customer-requested features. Led migration from monolithic architecture to containerized microservices."
+    },
+    {
+      "title": "Software Engineer",
+      "summary": "Developed full-stack web applications for financial services clients. Implemented secure payment processing systems handling $5M+ in daily transactions. Built real-time data visualization dashboards using D3.js and WebSockets. Participated in on-call rotation and reduced incident response time by 50%. Created comprehensive documentation and onboarding materials for new team members."
+    },
+    {
+      "title": "Junior Developer",
+      "summary": "Started career building responsive web applications and mobile-first designs. Learned best practices for version control, code review, and agile development. Contributed to open-source projects and improved personal coding skills. Assisted senior developers with bug fixes and feature implementation. Gained experience with modern JavaScript frameworks and cloud deployment."
+    }
+  ],
+  "education": [
+    {
+      "degree": "BS - Computer Science",
+      "institution": "University of California, Berkeley"
+    }
+  ],
+  "certifications": [
+    "AWS Certified Solutions Architect",
+    "Google Cloud Professional Developer",
+    "Certified Kubernetes Administrator (CKA)",
+    "MongoDB Certified Developer"
+  ],
+  "values": [
+    "Continuous Learning – Always exploring new technologies and improving skills",
+    "Code Quality – Writing clean, maintainable, and well-tested code",
+    "Collaboration – Building strong relationships across teams",
+    "User Focus – Creating solutions that solve real problems",
+    "Innovation – Finding creative solutions to technical challenges",
+    "Mentorship – Helping others grow and succeed",
+    "Open Source – Contributing back to the developer community",
+    "Work-Life Balance – Maintaining sustainable productivity"
+  ],
+  "preferred_industries": [
+    "Developer Tools",
+    "Cloud Infrastructure",
+    "FinTech",
+    "B2B SaaS",
+    "E-commerce",
+    "EdTech",
+    "HealthTech",
+    "AI/ML Platforms"
+  ],
+  "undesired_industries": [
+    "Gambling",
+    "Adult Entertainment",
+    "Tobacco",
+    "Weapons Manufacturing"
+  ],
+  "work_environment_preferences": [
+    "Strong engineering culture with focus on best practices",
+    "Opportunities for technical leadership and mentorship",
+    "Modern tech stack and cloud-native architecture",
+    "Investment in developer tools and productivity",
+    "Collaborative team with knowledge sharing",
+    "Clear product vision and roadmap",
+    "Support for continuous learning and conference attendance",
+    "Remote-friendly or hybrid work options"
+  ]
+}

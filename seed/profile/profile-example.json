@@ -1,0 +1,123 @@
+{
+  "identity": {
+    "name": "Jane Doe",
+    "current_title": "Senior Software Engineer",
+    "location": "San Francisco, CA",
+    "contact": {
+      "email": "jane.doe@example.com",
+      "phone": "(555) 123-4567",
+      "linkedin": "https://www.linkedin.com/in/janedoe/"
+    }
+  },
+  "compensation": {
+    "min_base_salary": 150000,
+    "seniority": "Senior",
+    "remote_preference": "hybrid"
+  },
+  "technical_skills": {
+    "expert": [
+      "TypeScript",
+      "React",
+      "Node.js",
+      "PostgreSQL",
+      "System Design",
+      "API Development"
+    ],
+    "proficient": [
+      "Python",
+      "AWS",
+      "Docker",
+      "Kubernetes",
+      "GraphQL",
+      "Redis",
+      "CI/CD",
+      "Microservices"
+    ],
+    "familiar": [
+      "Go",
+      "Machine Learning",
+      "Elasticsearch",
+      "Kafka",
+      "Security Best Practices"
+    ]
+  },
+  "quantifiable_achievements": [
+    {
+      "achievement": "Led migration of monolith to microservices architecture",
+      "context": "Improved system scalability and deployment velocity",
+      "impact": "Reduced deployment time by 80% and improved uptime to 99.9%"
+    },
+    {
+      "achievement": "Built real-time data processing pipeline",
+      "context": "Handled 1M+ events per second",
+      "impact": "Enabled real-time analytics and reduced data lag from hours to seconds"
+    },
+    {
+      "achievement": "Mentored 5 junior developers",
+      "context": "Established mentorship program and technical training",
+      "impact": "100% of mentees promoted within 18 months"
+    }
+  ],
+  "preferences": {
+    "industries": {
+      "preferred": [
+        "B2B SaaS",
+        "Developer Tools",
+        "Cloud Infrastructure",
+        "FinTech",
+        "AI/ML Platforms",
+        "Data Analytics"
+      ],
+      "undesired": [
+        "Advertising Tech",
+        "Social Media",
+        "Gaming",
+        "Cryptocurrency"
+      ]
+    },
+    "company_stage": "Series B-D or Public Tech Company",
+    "work_environment": [
+      "Strong engineering culture",
+      "Focus on technical excellence",
+      "Opportunities for technical leadership",
+      "Investment in developer experience",
+      "Modern tech stack and best practices"
+    ]
+  },
+  "red_flags": [
+    "Unclear product vision",
+    "High turnover in engineering team",
+    "Outdated technology stack",
+    "No investment in testing or quality"
+  ],
+  "dealbreakers": [
+    "No work-life balance",
+    "Toxic culture",
+    "Unethical business practices",
+    "No growth opportunities"
+  ],
+  "interview_profile": {
+    "style": "Collaborative problem solver. I focus on understanding requirements and trade-offs.",
+    "technical_strengths": [
+      "System design discussions",
+      "Code architecture reviews",
+      "Performance optimization",
+      "Technical deep dives"
+    ],
+    "preparation_approach": "Research company tech stack, prepare relevant examples, practice system design"
+  },
+  "unique_value_propositions": [
+    "Full-stack expertise with focus on scalable backend systems",
+    "Proven track record of leading technical initiatives",
+    "Strong communicator who can work with stakeholders at all levels",
+    "Passionate about mentorship and building strong engineering teams",
+    "Data-driven approach to technical decisions"
+  ],
+  "core_values": [
+    "Technical Excellence – Writing clean, maintainable, and performant code",
+    "Continuous Learning – Staying current with technology trends and best practices",
+    "Collaboration – Building strong relationships across teams",
+    "Impact – Focusing on solutions that deliver business value",
+    "Mentorship – Helping others grow and succeed"
+  ]
+}
